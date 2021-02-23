@@ -1,7 +1,7 @@
 import { LocaleService } from './services/locale.service';
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-
+import defaultLanguage from './../assets/i18n/en.json';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,6 +20,7 @@ export class AppComponent {
   // tslint:disable-next-line: typedef
   translateAppByBrowserLanguage() {
     const brwsClutureLang = this.translate.getBrowserCultureLang();
+    this.translate.setTranslation('en', defaultLanguage);
     this.translate.use(brwsClutureLang);
     this.localeService.registerCulture(brwsClutureLang);
   }
